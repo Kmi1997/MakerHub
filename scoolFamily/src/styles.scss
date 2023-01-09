@@ -21,3 +21,51 @@ html, body {
 h1 {
     font-family: 'Grunge';
 }
+
+//Social logo + animation
+.social {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    
+    a{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    a,img  {
+        width: 50px;
+        z-index: 5;
+        margin-top: 3%;
+    }
+    img:hover{
+        animation-name: move;
+        animation-iteration-count: infinite;
+        animation-duration: 1.5s;
+    }
+};
+
+
+@keyframes move {
+
+    0%,
+    90% {
+        transform: translate3d(3px, 3px, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(10px, 10px, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-5px, -10px, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 15px, 0);
+    }
+};

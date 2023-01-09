@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InternshipComponent } from './internships/internship/internship.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { FourOfourComponent } from './shared/four-ofour/four-ofour.component';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     AppComponent,
     InternshipComponent,
     NavbarComponent,
+    FourOfourComponent,
   ],
   imports: [
     BrowserModule,
