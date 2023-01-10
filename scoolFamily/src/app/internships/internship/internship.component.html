@@ -1,1 +1,11 @@
-<p>internship works!</p>
+<div id="generalContainer">
+    <div class="containerData" *ngFor="let obj of internship">
+        <h3> {{obj.name}} </h3> 
+        <div>
+            <p>Thème {{obj.theme}} </p>
+        </div>
+        <div>
+            <p>Durée : {{obj.duration}} jours</p>
+        </div>
+    </div>
+</div>
