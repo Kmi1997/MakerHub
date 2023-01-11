@@ -1,41 +1,87 @@
 
-import { HttpClient } from "@angular/common/http";
+import { trigger, state, style, transition, animate } from "@angular/animations";
 import { Component, OnInit } from "@angular/core";
 import { InternshipService } from "src/app/shared/services/internship.service";
+import { Internship } from "../Internship.interface";
 
 @Component({
   selector: "app-internship",
   templateUrl: "./internship.component.html",
   styleUrls: ["./internship.component.scss"],
+  animations: [
+    trigger('Grow', [
+      state('inactive', style({
+        opacity: '100'
+      })),
+      state('active', style({
+        opacity: '0'
+      })),
+      transition('inactive => active', animate('0ms')),
+      transition('active => inactive', animate('300ms'))
+    ])
+  ]
 })
 
 export class InternshipComponent implements OnInit {
+ 
 
   constructor(private intShipService: InternshipService) { }
 
+  //index for change DIV
+  index : number = 0;
+  playAnimation : boolean = false;
 
-  internship!: {
-    name: string,
-    numberAvaible: number,
-    duration: number,
-    startDate: Date,
-    endDate: Date,
-    theme: string | null,
-    deleted: boolean,
-    image: string | null,
-    price: number,
-    place: string,
-    fromAge: number | null,
-    desc: string | null
-  }[];
+  internship!: Internship[];
 
   ngOnInit() {
+
+    //get datas to interface
     this.intShipService.getData().subscribe((x: []) => {
       this.internship = x;
       console.log(this.internship);
+      console.log(this.index);
     });
-    
-  }
-}
+
+ 
+  
+  };
+
+  changeDivForward() : void {
+
+    if(this.index == this.internship.length - 1){
+      this.index = 0;
+      console.log(this.index)
+    }
+    else{
+      this.index++;
+      console.log(this.index)
+    };
+
+    //To show the next div
+    this.playAnimation = !this.playAnimation;
+    setTimeout(() => {
+      this.playAnimation = !this.playAnimation;
+    }, 100);
+  };
+
+  changeDivBack() : void {
+
+    if(this.index == 0){
+      this.index = this.internship.length - 1;
+      console.log(this.index)
+
+    }
+    else{
+      this.index--;
+      console.log(this.index)
+    };
+
+    this.playAnimation = !this.playAnimation;
+    setTimeout(() => {
+      this.playAnimation = !this.playAnimation;
+    }, 100);
+  };
+
+};
 
 

@@ -1,11 +1,37 @@
-<div id="generalContainer">
-    <div class="containerData" *ngFor="let obj of internship">
-        <h3> {{obj.name}} </h3> 
-        <div>
-            <p>Thème {{obj.theme}} </p>
-        </div>
-        <div>
-            <p>Durée : {{obj.duration}} jours</p>
-        </div>
+<section *ngIf="internship != undefined">
+    <div class="arrows" (click)="changeDivBack()">
+        <img src="../../../assets/arrowBack.png">
     </div>
-</div>
+        <div class="containerData" [@Grow]="playAnimation ? 'active' : 'inactive'">
+            <div class="desc">
+                <h2> {{internship[index].name}} </h2>
+                <p id="desc">{{internship[index].desc}}</p>
+            </div>
+            <div>
+                <p>Du {{internship[index].startDate | date: "dd/MM/yy"}} au {{internship[index].endDate | date: "dd/MM/yy"}}
+                </p>
+            </div>
+            <div>
+                <p>Thème: {{internship[index].theme}} </p>
+            </div>
+            <div>
+                <p>Durée : {{internship[index].duration}} jours</p>
+            </div>
+            <div>
+                <p>Nombre de places : {{internship[index].numberAvailable}} </p>
+            </div>
+            <div>
+                <p> Prix: {{internship[index].price}}€</p>
+            </div>
+            <div>
+                <p> Lieu: {{internship[index].place}}</p>
+            </div>
+            <div>
+                <p> À partir de {{internship[index].fromAge}} ans </p>
+            </div>
+        </div>
+
+    <div class="arrows" (click)="changeDivForward()">
+        <img src="../../../assets/arrowForward.png">
+    </div>
+</section>
