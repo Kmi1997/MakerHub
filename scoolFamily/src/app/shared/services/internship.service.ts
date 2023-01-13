@@ -7,9 +7,16 @@ import { Observable } from 'rxjs';
 })
 export class InternshipService {
 
+
   constructor(private http : HttpClient) { }
 
+  //all internships datas
   getData() : Observable<any>{
     return this.http.get("http://localhost:3200/internship/getInternship");
+  };
+
+  //internships data by ID
+  getOne(id : {}) : Observable<any>{
+     return this.http.get(`http://localhost:3200/internship/getInternship?id=${id}`);
   };
 }

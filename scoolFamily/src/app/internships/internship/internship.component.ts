@@ -8,6 +8,8 @@ import { Internship } from "../Internship.interface";
   selector: "app-internship",
   templateUrl: "./internship.component.html",
   styleUrls: ["./internship.component.scss"],
+
+  // Angular animations for cards.
   animations: [
     trigger('Grow', [
       state('inactive', style({
@@ -15,6 +17,16 @@ import { Internship } from "../Internship.interface";
       })),
       state('active', style({
         opacity: '0'
+      })),
+      transition('inactive => active', animate('0ms')),
+      transition('active => inactive', animate('300ms'))
+    ]),
+    trigger('Hover', [
+      state('inactive', style({
+        opacity: '100'
+      })),
+      state('active', style({
+        opacity: 0.5
       })),
       transition('inactive => active', animate('0ms')),
       transition('active => inactive', animate('300ms'))
@@ -30,6 +42,10 @@ export class InternshipComponent implements OnInit {
   //index for change DIV
   index : number = 0;
   playAnimation : boolean = false;
+  selectedCard: boolean = false;
+  nameInternship : string = "";
+  sectionActive : boolean = true;
+
 
   internship!: Internship[];
 
@@ -39,22 +55,17 @@ export class InternshipComponent implements OnInit {
     this.intShipService.getData().subscribe((x: []) => {
       this.internship = x;
       console.log(this.internship);
-      console.log(this.index);
     });
-
- 
-  
   };
 
+  //function to change div
   changeDivForward() : void {
 
     if(this.index == this.internship.length - 1){
       this.index = 0;
-      console.log(this.index)
     }
     else{
       this.index++;
-      console.log(this.index)
     };
 
     //To show the next div
@@ -68,12 +79,9 @@ export class InternshipComponent implements OnInit {
 
     if(this.index == 0){
       this.index = this.internship.length - 1;
-      console.log(this.index)
-
     }
     else{
       this.index--;
-      console.log(this.index)
     };
 
     this.playAnimation = !this.playAnimation;
@@ -82,6 +90,9 @@ export class InternshipComponent implements OnInit {
     }, 100);
   };
 
+  selected(){
+    this.selectedCard = !this.selectedCard;
+  };
 };
 
 

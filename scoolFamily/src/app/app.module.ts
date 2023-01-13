@@ -10,8 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { InternshipComponent } from './internships/internship/internship.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SwitchDirective } from './shared/directives/switch.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MediaQueryComponent } from './shared/mediaQueries/media-query.component';
+import { RegistrationComponent } from './registration/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavbarComponent,
     FourOfourComponent,
     InternshipComponent,
-    SwitchDirective
-    
+    MediaQueryComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

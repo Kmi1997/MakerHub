@@ -1,9 +1,13 @@
-<section *ngIf="internship != undefined">
+<section *ngIf="internship != undefined && sectionActive">
     <div class="arrows" (click)="changeDivBack()">
         <img src="../../../assets/arrowBack.png">
     </div>
-        <div class="containerData" [@Grow]="playAnimation ? 'active' : 'inactive'">
-            <div class="desc">
+    
+        <div routerLink="internships/{{internship[index].id}}/registration" (mouseenter)="selected()" 
+        (mouseleave)="selected()" class="containerData" [@Grow]="playAnimation ? 'active' : 'inactive'" 
+        [@Hover]="selectedCard ? 'active' : 'inactive' ">
+
+            <div class="desc" *ngIf="internship[index].desc">
                 <h2> {{internship[index].name}} </h2>
                 <p id="desc">{{internship[index].desc}}</p>
             </div>
@@ -12,7 +16,7 @@
                 </p>
             </div>
             <div>
-                <p>Thème: {{internship[index].theme}} </p>
+                <p>Heures: {{internship[index].startHour}} à {{internship[index].endHour}} </p>
             </div>
             <div>
                 <p>Durée : {{internship[index].duration}} jours</p>

@@ -1,22 +1,27 @@
-section{
+section {
     display: flex;
     flex-direction: row;
+    max-height: 500px;
     justify-content: space-around;
     z-index: 4;
-    .arrows{
+
+    .arrows {
         margin-top: 15vh;
         height: 100%;
-        img{
+
+        img {
             width: 5vh;
-        };
-    } 
-   
-};
+        }
 
+        ;
+    }
 
-.containerData{
-    
+}
+
+.containerData {
+
     width: 50%;
+    height: 50%;
     box-shadow: 3px 3px 10px grey;
     border-radius: 20px;
     color: white;
@@ -24,37 +29,96 @@ section{
     flex-direction: column;
     flex-flow: wrap;
     justify-content: space-around;
-    background: linear-gradient(to right bottom, rgba(244 178 48) 70%,  #d4fef2 100% );
+    background: linear-gradient(to right bottom, rgba(244 178 48) 70%, #d4fef2 100%);
 
-    :not(.desc){
+    :last-child p {
+        text-align: center;
+    }
+
+    :not(.desc) {
         padding-top: 2vh;
         width: 50%;
         margin: auto;
         padding-bottom: 1vh;
-    };
-    
+    }
 
-    .desc{
+    .desc {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
-        h2{
+
+        h2 {
+            width: 100%;
             font-family: 'Grunge';
             padding: 3vh;
             text-align: center;
-        };
+        }
 
-        #desc{
+        #desc {
             text-align: justify;
             width: 75%;
-        };
-    };
- 
+        }
+        p {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            padding: 0;
+            min-height: 3.3em;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+        }
+    }
+}
 
-};
 
+@media screen and (max-width: 768px) {
 
+    .desc {
 
+        h2 {
+            min-width: 90%;
+        }
 
+        p {
+            display: none !important;
+            border: 1px solid black;
+            height: 0;
+        }
+    }
+
+    .containerData div:not(.desc):not(.containerData) {
+        margin: 0;
+        height: 80px;
+
+        p {
+            margin: 0;
+            width: 100%;
+            padding: 0;
+            text-align: center;
+        }
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    .containerData :last-child p {
+        width: 80%;
+    }
+
+    .containerData {
+        height: 50%;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .containerData {
+        height:370px;
+        width: 80%;
+    }
+
+    .containerData :last-child p {
+        width: 80%;
+        font-size: 0.8em;
+    }
+
+}
 
