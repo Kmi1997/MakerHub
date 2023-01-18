@@ -17,6 +17,6 @@ export class InternshipService {
 
   //internships data by ID
   getOne(id : {}) : Observable<any>{
-     return this.http.get(`http://localhost:3200/internship/getInternship?id=${id}`);
+     return this.http.get(`http://localhost:3200/internship/getOne/${id}`);
   };
 }

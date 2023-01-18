@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FourOfourComponent } from './shared/four-ofour/four-ofour.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { InternshipComponent } from './internships/internship/internship.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -30,7 +30,8 @@ import { RegistrationComponent } from './registration/registration/registration.
     FormsModule,
     NgbCarouselModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

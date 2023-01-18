@@ -1,11 +1,61 @@
-<section>
-    <h1> Inscriptions </h1>
-    <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-      </div>
+<body>
+  <div class="social">
+    <a href="https://www.facebook.com/SCFMY" target="_blank"><img src="../../../assets/fb.png" alt="facebook"
+        title="facebook"></a>
+    <a href="mailto:scoolfamily@outlook.com"><img src="../../../assets/mail.svg" alt="mail" title="mail"></a>
+    <a href="https://www.instagram.com/scoolfamily_asbl/" target="_blank"><img src="../../../assets/insta.png"
+        alt="instagram" title="instagram"></a>
+  </div>
+
+  <h1 *ngIf="registrationOk == null"> Inscription au {{title}}</h1>
+
+  <section *ngIf="registrationOk === null">
+    <form [formGroup]="myInternForm">
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <label for="parentName" class="form-label">Nom du parent*</label>
+        <input type="text" class="form-control" formControlName="parentName" id="parentName" [ngClass]="{'valid' : myInternForm.controls['parentName'].valid, 'error' : myInternForm.controls['parentName'].invalid && myInternForm.controls['parentName'].touched}">
       </div>
-</section>
+      
+      <div class="mb-3">
+        <label for="childName" class="form-label">Nom de l'enfant*</label>
+        <input type="text" class="form-control" formControlName="childName" id="childName" [ngClass]="{'valid' : myInternForm.controls['childName'].valid, 'error' : myInternForm.controls['childName'].invalid && myInternForm.controls['childName'].touched}">
+      </div>
+
+      <div class="mb-3">
+        <label for="age" class="form-label">Âge de l'enfant*</label>
+        <input type="number" min="{{age}}" class="form-control" formControlName="age" id="age" [ngClass]="{'valid' : myInternForm.controls['age'].valid, 'error' : myInternForm.controls['age'].invalid && myInternForm.controls['age'].touched}">
+      </div>
+
+      <div class="mb-3">
+        <label for="parentPhone" class="form-label">Téléphone*</label>
+        <input type="tel" class="form-control" formControlName="parentPhone" id="parentPhone" [ngClass]="{'valid' : myInternForm.controls['parentPhone'].valid, 'error' : myInternForm.controls['parentPhone'].invalid && myInternForm.controls['parentPhone'].touched}">
+      </div>
+
+      <div>
+          <label for="mail" class="form-label">Email*</label>
+          <input type="mail" class="form-control" formControlName="mail" id="mail" [ngClass]="{'valid' : myInternForm.controls['mail'].valid, 'error' : myInternForm.controls['mail'].invalid && myInternForm.controls['mail'].touched}">  
+      </div>
+      
+      <div class="mb-3">
+        <label for="healthIssues" class="form-label">Problèmes de santé?</label>
+        <textarea class="form-control" id="healthIssues" rows="5" value=""></textarea>
+      </div>
+
+      <div class="form-check form-switch" (click)="checkBox()">
+        <input class="form-check-input" type="checkbox" role="switch" id="imgRights" [(ngModel)]="checkBoxValue" [ngModelOptions]="{standalone: true}">
+        <label class="form-check-label" for="imgRights">J'autorise mon enfant à apparaître sur des publications postées
+          sur nos réseaux</label>
+      </div>
+
+    </form>
+
+  </section>
+
+  <h2 *ngIf="registrationOk !== null && !myInternForm.touched"> {{registrationOk}} </h2>
+  <p *ngIf="registrationOk !== null"> Vous allez recevoir un mail de confirmation reprenant les informations pratiques concernant le stage.</p>
+
+  <div id="btn" *ngIf="registrationOk === null">
+    <button [disabled]="!myInternForm.valid" type="button" class="btn btn-warning" (click)="sendForm()"> Valider </button>
+  </div>
+
+</body>

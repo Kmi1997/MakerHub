@@ -87,7 +87,6 @@ section {
     }
 
     .containerData div:not(.desc):not(.containerData) {
-        margin: 0;
         height: 80px;
 
         p {
@@ -109,16 +108,16 @@ section {
     }
 }
 
-@media screen and (max-width: 576px){
-    .containerData {
-        height:370px;
-        width: 80%;
-    }
+// @media screen and (max-width: 700px){
+//     .containerData {
+//         height:370px;
+//         width: 80%;
+//     }
 
-    .containerData :last-child p {
-        width: 80%;
-        font-size: 0.8em;
-    }
+//     .containerData :last-child p {
+//         width: 80%;
+//         font-size: 0.8em;
+//     }
 
-}
+// }
 
