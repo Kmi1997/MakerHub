@@ -35,16 +35,16 @@ import { Internship } from "../Internship.interface";
 })
 
 export class InternshipComponent implements OnInit {
- 
+
 
   constructor(private intShipService: InternshipService) { }
 
   //index for change DIV
-  index : number = 0;
-  playAnimation : boolean = false;
+  index: number = 0;
+  playAnimation: boolean = false;
   selectedCard: boolean = false;
-  nameInternship : string = "";
-  sectionActive : boolean = true;
+  nameInternship: string = "";
+  sectionActive: boolean = true;
 
 
   internship!: Internship[];
@@ -59,38 +59,38 @@ export class InternshipComponent implements OnInit {
   };
 
   //function to change div
-  changeDivForward() : void {
+  changeDivForward(): void {
 
-    if(this.index == this.internship.length - 1){
+    if (this.index == this.internship.length - 1) {
       this.index = 0;
     }
-    else{
+    else {
       this.index++;
     };
 
     //To show the next div
     this.playAnimation = !this.playAnimation;
-    setTimeout(() => {
+    setTimeout(() => {
       this.playAnimation = !this.playAnimation;
     }, 100);
   };
 
-  changeDivBack() : void {
+  changeDivBack(): void {
 
-    if(this.index == 0){
+    if (this.index == 0) {
       this.index = this.internship.length - 1;
     }
-    else{
+    else {
       this.index--;
     };
 
     this.playAnimation = !this.playAnimation;
-    setTimeout(() => {
+    setTimeout(() => {
       this.playAnimation = !this.playAnimation;
     }, 100);
   };
 
-  selected(){
+  selected() {
     this.selectedCard = !this.selectedCard;
   };
 };

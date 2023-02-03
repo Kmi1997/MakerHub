@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { 
-    height: 100%; 
+html,
+body {
+    height: 100%;
     margin: 0px;
-    margin-top : 0px;
+    margin-top: 0px;
 }
 
 
@@ -26,24 +27,29 @@ h1 {
 .social {
     display: flex;
     flex-direction: row;
-    justify-content:space-evenly;
-    
-    a{
+    justify-content: space-evenly;
+
+    a {
         display: flex;
         flex-direction: row;
         justify-content: center;
     }
-    a,img  {
+
+    a,
+    img {
         width: 50px;
         z-index: 1;
         margin-top: 3%;
     }
-    img:hover{
+
+    img:hover {
         animation-name: move;
         animation-iteration-count: infinite;
         animation-duration: 1.8s;
     }
-};
+}
+
+;
 
 
 @keyframes move {
@@ -68,10 +74,12 @@ h1 {
     60% {
         transform: translate3d(4px, 15px, 0);
     }
-};
+}
 
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+;
+
+// /* Importing Bootstrap SCSS file. */
+// @import '~bootstrap/scss/bootstrap';
 
 
 //Responsive design

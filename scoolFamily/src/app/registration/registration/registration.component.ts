@@ -15,15 +15,15 @@ export class RegistrationComponent implements OnInit {
   currentParams: string = "";
   title: string = "";
   age: number = 0;
-  checkBoxValue : boolean = false;
+  checkBoxValue: boolean = false;
   registrationOk: string | null = null;
 
   constructor(
-    private router: ActivatedRoute, 
-    private service: InternshipService, 
+    private router: ActivatedRoute,
+    private service: InternshipService,
     private builder: FormBuilder,
     private internService: InternService
-    ) { }
+  ) { }
 
   internFormValues!: Intern;
 
@@ -66,22 +66,22 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
 
     //get url params to send to API.
-    this.router.params.subscribe((params : any) => {
+    this.router.params.subscribe((params: any) => {
       this.currentParams = params.id;
     });
 
-    this.service.getOne(this.currentParams).subscribe((data: { name: string, fromAge: number}) => {
+    this.service.getOne(this.currentParams).subscribe((data: { name: string, fromAge: number; }) => {
       this.title = data.name;
       this.age = data.fromAge;
     });
   };
 
-  checkBox(){
+  checkBox() {
     this.checkBoxValue = !this.checkBoxValue;
   };
 
   //send data + reset form group
-  sendForm(){
+  sendForm() {
 
     this.internFormValues = this.myInternForm.value;
     this.internFormValues.internshipId = parseInt(this.currentParams);
@@ -89,10 +89,10 @@ export class RegistrationComponent implements OnInit {
     this.internFormValues.paid = false;
     this.internFormValues.deleted = false;
 
-    this.internService.addIntern(this.internFormValues).subscribe((obj : {message: string}) => {
-        this.registrationOk = obj.message;
-      });
+    this.internService.addIntern(this.internFormValues).subscribe((obj: { message: string; }) => {
+      this.registrationOk = obj.message;
+    });
 
-      this.myInternForm.reset();
+    this.myInternForm.reset();
   };
 };

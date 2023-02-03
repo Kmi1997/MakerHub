@@ -2,38 +2,34 @@
     <div class="arrows" (click)="changeDivBack()">
         <img src="../../../assets/arrowBack.png">
     </div>
-    
-        <div routerLink="internships/{{internship[index].id}}/registration" (mouseenter)="selected()" 
-        (mouseleave)="selected()" class="containerData" [@Grow]="playAnimation ? 'active' : 'inactive'" 
+
+    <div routerLink="internships/{{internship[index].id}}/registration" (mouseenter)="selected()"
+        (mouseleave)="selected()" class="containerData" [@Grow]="playAnimation ? 'active' : 'inactive'"
         [@Hover]="selectedCard ? 'active' : 'inactive' ">
 
-            <div class="desc" *ngIf="internship[index].desc">
-                <h2> {{internship[index].name}} </h2>
-                <p id="desc">{{internship[index].desc}}</p>
-            </div>
-            <div>
-                <p>Du {{internship[index].startDate | date: "dd/MM/yy"}} au {{internship[index].endDate | date: "dd/MM/yy"}}
-                </p>
-            </div>
-            <div>
-                <p>Heures: {{internship[index].startHour}} à {{internship[index].endHour}} </p>
-            </div>
-            <div>
-                <p>Durée : {{internship[index].duration}} jours</p>
-            </div>
-            <div>
-                <p>Nombre de places : {{internship[index].numberAvailable}} </p>
-            </div>
-            <div>
-                <p> Prix: {{internship[index].price}}€</p>
-            </div>
-            <div>
-                <p> Lieu: {{internship[index].place}}</p>
-            </div>
-            <div>
-                <p> À partir de {{internship[index].fromAge}} ans </p>
-            </div>
+        <div class="desc">
+            <h2> {{internship[index].name}} </h2>
         </div>
+        <div>
+            <p>Du {{internship[index].startDate | date: " dd/MM/yy"}} au {{internship[index].endDate | date: "dd/MM/yy"
+                }} </p>
+        </div>
+        <div>
+            <p>Heures: {{internship[index].startHour}} à {{internship[index].endHour}} </p>
+        </div>
+        <div>
+            <p>Nombre de places : {{internship[index].numberAvailable}} </p>
+        </div>
+        <div>
+            <p> Prix: {{internship[index].price}}€</p>
+        </div>
+        <div>
+            <p> Lieu: {{internship[index].place}}</p>
+        </div>
+        <div>
+            <p> À partir de {{internship[index].fromAge}} ans </p>
+        </div>
+    </div>
 
     <div class="arrows" (click)="changeDivForward()">
         <img src="../../../assets/arrowForward.png">
